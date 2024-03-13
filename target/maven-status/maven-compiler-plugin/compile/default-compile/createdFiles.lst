@@ -1,0 +1,5 @@
+com/green/springrestapi/repository/UserRepository.class
+com/green/springrestapi/entity/User$UserBuilder.class
+com/green/springrestapi/entity/User.class
+com/green/springrestapi/SpringRestApiApplication.class
+com/green/springrestapi/controller/UserController.class
