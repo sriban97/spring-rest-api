@@ -2,7 +2,10 @@ package com.green.springrestapi.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.util.ObjectUtils;
 
 import java.io.Serializable;

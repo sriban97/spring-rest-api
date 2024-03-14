@@ -1,6 +1,5 @@
 package com.green.springrestapi.controller;
 
-import com.green.springrestapi.service.Bank;
 import com.green.springrestapi.entity.User;
 import com.green.springrestapi.repository.UserRepository;
 import jakarta.validation.Valid;
