@@ -53,7 +53,12 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$.lastName",
                         is(user.getLastName())))
                 .andExpect(jsonPath("$.email",
-                        is(user.getEmail())));
+                        is(user.getEmail())))
+                .andExpect(jsonPath("$.phone",
+                        is(user.getPhone())))
+                .andExpect(jsonPath("$.password",
+                        is(user.getPassword())))
+        ;
     }
 
     @Test
@@ -61,10 +66,8 @@ public class UserControllerTests {
         User existsUser = User.builder().id(1).firstName("sriban").lastName("tamil")
                 .email("sri@gmail.com").phone("1234569871").password("123456").build();
 
-
         User updateUser = User.builder().firstName("mari").lastName("tamil")
                 .email("sri@gmail.com").phone("1234569871").password("123456").build();
-
 
         given(userRepository.findById(any(Long.class)))
                 .willReturn(Optional.of(existsUser));
@@ -80,8 +83,8 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$.lastName", is(updateUser.getLastName())))
                 .andExpect(jsonPath("$.email", is(updateUser.getEmail())))
                 .andExpect(jsonPath("$.phone", is(updateUser.getPhone())))
-                .andExpect(jsonPath("$.password", is(updateUser.getPassword())));
-
+                .andExpect(jsonPath("$.password", is(updateUser.getPassword())))
+        ;
     }
 
     @Test
@@ -102,8 +105,6 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$.email", is(newUser.getEmail())))
                 .andExpect(jsonPath("$.phone", is(newUser.getPhone())))
                 .andExpect(jsonPath("$.password", is(newUser.getPassword())));
-
-
     }
 
     @Test
