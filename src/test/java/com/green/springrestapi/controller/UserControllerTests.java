@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@WebMvcTest(UserController.class)
 public class UserControllerTests {
 
     @Autowired
@@ -125,6 +125,8 @@ public class UserControllerTests {
                 .andExpect(jsonPath("$.password", is(existsUser.getPassword())));
 
     }
+
+
 
 //    // JUnit test for Get All employees REST API
 //    @Test
