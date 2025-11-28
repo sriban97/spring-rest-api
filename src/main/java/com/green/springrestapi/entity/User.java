@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.util.ObjectUtils;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@DynamicUpdate
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -53,7 +55,7 @@ public class User implements Serializable {
 
     @Column(name = "active")
     @JsonIgnore
-    private transient char active = 'Y';
+    private char active = 'Y';
 
     @AssertTrue(message = "should not allow empty e-mail & phone!")
     private boolean isValidMailPhone() {

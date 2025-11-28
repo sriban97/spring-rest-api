@@ -1,3 +1,5 @@
+server:
+  port: 1212
 debug: false
 spring:
   datasource:

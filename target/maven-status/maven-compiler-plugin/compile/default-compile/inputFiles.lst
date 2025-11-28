@@ -1,8 +1,15 @@
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/service/SBIImpl.java
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/service/IndianImpl.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/repository/CategoryRepository.java
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/service/Bank.java
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/entity/User.java
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/repository/UserRepository.java
-/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/controller/UserController.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/entity/Category.java
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/controllerAdvisor/UserControlAdviser.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/entity/Product.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/controller/CategoryController.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/controller/EmployeeController.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/entity/Employee.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/config/SwaggerConfig.java
+/opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/controller/UserController.java
 /opt/workspace/java/spring-rest-api/src/main/java/com/green/springrestapi/SpringRestApiApplication.java

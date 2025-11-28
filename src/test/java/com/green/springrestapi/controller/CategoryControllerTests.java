@@ -37,6 +37,7 @@ public class CategoryControllerTests {
         Category category = Category.builder().catId(1).name("test").build();
 
         given(categoryRepository.save(any(Category.class))).willAnswer(invocationOnMock -> invocationOnMock.getArgument(0));
+
         ResultActions resultActions = mockMvc.perform(post("/category/save")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(category)));

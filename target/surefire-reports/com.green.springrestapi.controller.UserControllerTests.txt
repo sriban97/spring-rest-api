@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.green.springrestapi.controller.UserControllerTests
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.404 s -- in com.green.springrestapi.controller.UserControllerTests
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.551 s -- in com.green.springrestapi.controller.UserControllerTests

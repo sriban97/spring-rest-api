@@ -2,6 +2,7 @@ package com.green.springrestapi.controller;
 
 import com.green.springrestapi.entity.User;
 import com.green.springrestapi.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,6 @@ public class UserController {
     @Autowired
     public UserRepository userRepository;
 
-
     @PostMapping(name = "save", path = "/save-all1")
     public ResponseEntity<String> saveAll1() {
         for (int i = 1; i <= 10000; i++) {
@@ -29,8 +29,6 @@ public class UserController {
             userRepository.save(existsUser);
             System.out.println(existsUser);
         }
-//        insert into APP_USER (ACTIVE,PASSWORD ,PHONE ,EMAIL ,FIRST_NAME ,LAST_NAME,ID  )
-//        select ACTIVE,PASSWORD ,PHONE ,EMAIL ,FIRST_NAME ,LAST_NAME,(10000000+ID) from  APP_USER
         return new ResponseEntity<>("Save Success...", HttpStatus.CREATED);
     }
 
@@ -42,9 +40,16 @@ public class UserController {
 
 
     @PostMapping(name = "save", path = "/save")
+//    @Transactional
     public ResponseEntity<User> save(@RequestBody @Valid User user) {
         User response = userRepository.save(user);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        response.setLastName("MARI");
+        User response1 = userRepository.save(response);
+        response1.setActive('N');
+        User response2 = userRepository.save(response1);
+        response2.setPassword("pass");
+        User response3 = userRepository.save(response2);
+        return new ResponseEntity<>(response3, HttpStatus.CREATED);
     }
 
     @PutMapping(name = "update", path = "/update/{id}")
@@ -66,6 +71,13 @@ public class UserController {
         return response.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping(name = "get by id ", path = "/get/v1/{id}")
+    public ResponseEntity<User> getByIdV1(@RequestParam(value = "id", required = false) long id) {
+        Optional<User> response = userRepository.findById(id);
+        return response.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+
     @GetMapping(name = "get all user", path = "/getAll")
 //    @Cacheable(value = "todo-list", key = "'getList'")
     public ResponseEntity<List<User>> getAll() {
@@ -73,7 +85,7 @@ public class UserController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-//    @CacheEvict(value = "todo-list", key = "'getList'")
+    //    @CacheEvict(value = "todo-list", key = "'getList'")
     @GetMapping(name = "clear catch", path = "/clr")
     public String catchCleared() {
         return "Catch Cleared...";
